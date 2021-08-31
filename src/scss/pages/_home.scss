@@ -1,0 +1,11 @@
+.home {
+    background: $cp3;
+    margin: 20px;
+    padding: 20px;
+    border-radius: $br;
+    max-width: $xl;
+
+    @media (min-width: $xl) {
+        margin: 20px auto;
+    }
+}
