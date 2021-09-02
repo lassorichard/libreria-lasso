@@ -1,0 +1,151 @@
+$white: #E6D5C4;
+$black: #312F2D;
+$red: #D75F4E;
+
+@mixin circle($size){
+  height: $size;
+  width: $size;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: $white;
+}
+
+#button {
+  position: absolute;
+  @include circle(20px);
+  background: $white;
+  border: 3px solid $black;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+}
+
+.player {
+  height: 195px;
+  width: 220px;
+  position: relative;
+  margin: 0 auto 0 auto;
+  background: $red;
+  border: 3px solid $white;
+  border-radius: 8px;
+}
+
+.disc {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  @include circle(150px);
+  border-radius: 50%;
+  background: $black;
+  border: 5px solid $red;
+  box-shadow: 0 0 0 3px $white;
+  animation: adjust-hue 1s linear infinite;
+}
+
+.eye {
+  content: "";
+  position: absolute;
+  @include circle(15px);
+  background: $red;
+  border-radius: 50%;
+  border: 3px solid $black;
+  box-shadow: 0 0 0 15px $white;
+  top: 88px;
+  left: 88px;
+  z-index: 5;
+}
+
+.stylus-base {
+  @include circle(20px);
+  background: $black;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 50%;
+  border: 3px solid $red;
+  box-shadow: 0 0 0 3px $black;
+  transform: rotate(14deg);
+  animation: big-wiggle 500ms infinite linear;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    border-radius: 3px;
+    margin-left: -3px;
+    width: 6px;
+    height: 80px;
+    background: $white;
+    box-shadow: 2px 2px 10px -1px #333;
+  }
+}
+
+.stylus {
+  background: $white;
+  height: 12px;
+  width: 18px;
+  position: absolute;
+  right: 55px;
+  top: 102px;
+  border-radius: 2px;
+  transform: rotate(-15deg);
+  box-shadow: 2px 2px 10px 0px #333;
+  animation: little-wiggle 500ms infinite linear;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    height: 6px;
+    width: 8px;
+    top: 3px;
+    background: $white;
+    border-radius: 0 6px 6px 0;
+  }
+}
+
+@keyframes adjust-hue {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes big-wiggle {
+  0% {
+    transform: rotate(15deg);
+  }
+  
+  50% {
+    transform: rotate(13deg);
+  }
+  
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes little-wiggle {
+  0% {
+    transform: translateX(0px) translateY(-1px) rotate(-18deg);
+  }
+  
+  50% {
+    transform: translateX(2px) translateY(0px) rotate(-16deg);
+  }
+  
+  100% {
+    transform: translateX(0px) translateY(-1px) rotate(-18deg);
+  }
+}

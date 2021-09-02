@@ -3,7 +3,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        text-align: left;
         @media (min-width: $md) {
             flex-direction: row;
             justify-content: space-between;
@@ -35,6 +35,12 @@
             border-radius: $br;
             font-weight: bold;
             max-width: 150px;
+            transition: $transition;
+            cursor: pointer;
+
+            &:hover {
+                background: rgba($cp1, 0.9);
+            }
             
             &:not(:last-child) {
                 margin-right: 20px;
@@ -45,6 +51,21 @@
             }
         }
 
+    }
+
+    &__bag {
+        max-width: 22px;
+        padding-top: 20px;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @media (min-width:$md) {
+            padding-top: 0;
+        }
     }
 }
 

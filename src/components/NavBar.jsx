@@ -1,5 +1,7 @@
 import Book from '../assets/img/book.svg'
 import Headphone from '../assets/img/headphones.svg'
+import { CartWidget } from './CartWidget'
+
 export const NavBar = () => {
 
     return(
@@ -17,6 +19,7 @@ export const NavBar = () => {
                             AudioBooks
                         </li>
                     </ul>
+                    <CartWidget />
                 </div>
             </nav>
         </>

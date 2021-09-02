@@ -1,0 +1,14 @@
+.itemlistcontainer {    
+    display: flex;
+    margin: 40px 0;
+    &__aside {
+        width: 30%;
+        &__title {
+            font-size: 40px;
+            font-family: $f2;
+        }
+    }
+    &__content {
+        width: 70%;
+    }
+}
