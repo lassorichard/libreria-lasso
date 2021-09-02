@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="home">
         <NavBar />
-        <ItemListContainer />
+        <ItemListContainer 
+          saludo="New & Trending"
+        />
     </div>
   );
 }
