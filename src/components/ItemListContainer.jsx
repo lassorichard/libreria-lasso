@@ -1,3 +1,5 @@
+import { ItemCount } from "./ItemCount"
+
 export const ItemListContainer = ({saludo}) => {
     return (
 
@@ -9,7 +11,9 @@ export const ItemListContainer = ({saludo}) => {
                     </h1>
                 </aside>
                 <div className="itemlistcontainer__content">
-                    Contenido
+                    <ItemCount 
+                        stock={10}
+                    />
                 </div>
             </section>
         </>

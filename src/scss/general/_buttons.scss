@@ -1,0 +1,19 @@
+.btn {
+    background: none;
+    border: none;
+
+    &:hover {
+        opacity: .9;
+    }
+
+    &--primary {
+        width: 100%;
+        padding: 10px;
+        border-radius: $br;
+        font-weight: bold;
+        max-width: 150px;
+        transition: $transition;
+        cursor: pointer;
+        background: $cp1;
+    }
+}

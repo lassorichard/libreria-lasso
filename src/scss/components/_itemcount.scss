@@ -1,0 +1,25 @@
+.counter {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-items: center;
+    width: 100%;
+    max-width: 150px;
+    padding: 10px;
+    border-radius: $br;
+    border: 2px solid $cp2;
+    color: $cb;
+    margin-bottom: 10px;
+    &__more,
+    &__less {
+        color: $cp1;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        transition: $transition;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

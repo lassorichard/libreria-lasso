@@ -5,6 +5,7 @@
 @import './general/reset';
 @import './general/fonts';
 @import './general/general';
+@import './general/buttons';
 
 // Pages
 @import './pages/home';
@@ -12,6 +13,7 @@
 // Components
 @import './components/navbar';
 @import './components/itemlistcontainer';
+@import './components/itemcount';
 
 // Animations
 @import './animations/disc';
