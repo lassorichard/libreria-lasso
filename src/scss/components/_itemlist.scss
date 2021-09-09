@@ -1,0 +1,10 @@
+.item-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+
+    @media (min-width: $lg) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

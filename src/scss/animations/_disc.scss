@@ -35,6 +35,12 @@ body {
   background: $red;
   border: 3px solid $white;
   border-radius: 8px;
+
+  &__text {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 20px;
+  }
 }
 
 .disc {

@@ -49,6 +49,7 @@ export const Loader = () => {
                     <div className="stylus-base"></div>
                     <div className="stylus"></div>
                 </div>
+                <p className="player__text">Loading...</p>
             </div>
         </>
     );
