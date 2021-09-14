@@ -1,0 +1,29 @@
+.item-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 40px;
+    align-items: center;
+    justify-items: center;
+    
+    @media (min-width: $md) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__img {
+        border-radius: $br;
+        margin-bottom: 40px;
+    }
+
+    &__column {
+        &__title {
+            font-size: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding-bottom: 20px;
+        }
+
+        &__description {
+            padding-bottom: 20px;
+        }
+    }
+}
