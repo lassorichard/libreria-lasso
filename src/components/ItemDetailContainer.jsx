@@ -1,6 +1,7 @@
 import { ItemDetail } from "./ItemDetail"
-import Products from '../assets/files/products.json'
+import { Loader } from './Loader'
 import { useState, useEffect } from "react";
+import { ItemCount } from "./ItemCount";
 
 
 export const ItemDetailContainer = () => {
@@ -8,29 +9,36 @@ export const ItemDetailContainer = () => {
     const [loader, setLoader] = useState(false)
 
     useEffect(() => {
+        const url = "http://localhost:3001/products/2"
         setLoader(true)
-        getItem()
-        .then((result) => setItem(result))
-        .finally( ()=> setLoader(false) )
+        setTimeout(() => {
+            fetch(url)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                })
+                .then((data) => setItem(data))
+                .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
+                .finally(() => setLoader(false))
+        }, 2000);
+
     }, [])
 
-    const getItem = () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(Products[0])
-            }, 2000);
-        })
-    }
-
     return (
-        <> 
-            <div className="item-detail-container">
-                <ItemDetail 
-                    key={item.id}
-                    item={item}
-                    loader={loader}
-                />
-            </div>
+        <>
+            {
+                loader === true ? <Loader /> :
+                    <div className="item-detail-container">
+                        <ItemDetail
+                            key={item.id}
+                            item={item}
+                        />
+                    </div>
+            }
+
         </>
     )
 }

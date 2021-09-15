@@ -6,7 +6,7 @@ export const ItemList = ({items, loader}) => {
     return(
         <>
             {
-                loader === true ? <Loader /> : null
+                loader &&  <Loader /> 
             }
             <section className="item-list">
                 {

@@ -31,15 +31,17 @@ body {
   height: 195px;
   width: 220px;
   position: relative;
-  margin: 0 auto 0 auto;
+  margin: 100px auto 0 auto;
   background: $red;
   border: 3px solid $white;
   border-radius: 8px;
+  
 
   &__text {
     font-size: 30px;
     text-align: center;
     padding-top: 20px;
+    padding-bottom: 100px;
   }
 }
 
