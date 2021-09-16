@@ -2,8 +2,6 @@ import { Loader } from './Loader'
 import { ItemCount } from './ItemCount'
 
 export const ItemDetail = ({item, loader}) => {
-    console.log(item)
-    
     return (
         <> 
             {

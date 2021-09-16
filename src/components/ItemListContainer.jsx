@@ -1,27 +1,35 @@
 import { ItemList } from "./ItemList"
-
-import Products from '../assets/files/products.json'
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export const ItemListContainer = ({ saludo }) => {
 
     const [items, setItems] = useState([])
     const [loader, setLoader] = useState(false)
+    const { categoryId } = useParams()
 
     useEffect(() => {
+        const url = `http://localhost:3001/products`
         setLoader(true)
-        getProducts()
-        .then((result) => setItems(result))
-        .finally( ()=> setLoader(false) )
+        setTimeout(() => {
+            fetch(url)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                })
+                .then((data) => {
+                    setItems(data)
+                })
+                .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
+                .finally(() => setLoader(false))
+        }, 2000);
+
     }, [])
 
-    const getProducts = () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(Products)
-            }, 2000);
-        })
-    }
+    const categoryFilter = items.filter((item) => categoryId === undefined ? item : categoryId === item.category )
 
     return (
 
@@ -33,8 +41,11 @@ export const ItemListContainer = ({ saludo }) => {
                     </h1>
                 </aside>
                 <div className="itemlistcontainer__content">
+                    {
+                        
+                    }
                     <ItemList 
-                        items={items}
+                        items={categoryFilter}
                         loader={loader}
                     />
                 </div>

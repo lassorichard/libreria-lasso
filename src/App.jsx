@@ -1,18 +1,27 @@
 import './scss/main.scss';
 import { NavBar } from './components/NavBar'
-import { ItemListContainer } from './components/ItemListContainer'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { NotFound } from './pages/NotFound';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
+import { ItemListContainer } from './components/ItemListContainer';
 
 
 function App() {
   return (
-    <div className="home">
+    <>
+      <BrowserRouter>
         <NavBar />
-        {/* <ItemListContainer 
-          saludo="New & Trending"
-        /> */}
-        <ItemDetailContainer />
-    </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/category/:categoryId" component={ItemListContainer} />
+          <Route exact path="/product/:itemId" component={ItemDetailContainer} />
+          <Route  path="*" component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+
+
+    </>
   );
 }
 

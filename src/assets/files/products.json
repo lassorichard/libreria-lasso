@@ -2,36 +2,41 @@
     "products": [
         {
             "id": 1,
-            "title": "libro",
+            "title": "libro 1",
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sapiente in aut alias, minima possimus rerum enim nam consectetur animi doloremque nesciunt, sed veritatis autem tempore dicta aspernatur officiis qui?",
+            "category": "book",
             "price": 2000,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81ej-GuREkL._AC_UL320_SR320,320_.jpg"
         },
         {
             "id": 2,
-            "title": "libro",
+            "title": "libro 2",
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sapiente in aut alias, minima possimus rerum enim nam consectetur animi doloremque nesciunt, sed veritatis autem tempore dicta aspernatur officiis qui?",
+            "category": "book",
             "price": 2000,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81ej-GuREkL._AC_UL320_SR320,320_.jpg"
         },
         {
             "id": 3,
-            "title": "libro",
+            "title": "Audiolibro 1",
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sapiente in aut alias, minima possimus rerum enim nam consectetur animi doloremque nesciunt, sed veritatis autem tempore dicta aspernatur officiis qui?",
+            "category": "audiobook",
             "price": 2000,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81ej-GuREkL._AC_UL320_SR320,320_.jpg"
         },
         {
             "id": 4,
-            "title": "libro",
+            "title": "Audiolibro 2",
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sapiente in aut alias, minima possimus rerum enim nam consectetur animi doloremque nesciunt, sed veritatis autem tempore dicta aspernatur officiis qui?",
+            "category": "audiobook",
             "price": 2000,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81ej-GuREkL._AC_UL320_SR320,320_.jpg"
         },
         {
             "id": 5,
-            "title": "libro",
+            "title": "Audiolibro 3",
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sapiente in aut alias, minima possimus rerum enim nam consectetur animi doloremque nesciunt, sed veritatis autem tempore dicta aspernatur officiis qui?",
+            "category": "audiobook",
             "price": 2000,
             "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/81ej-GuREkL._AC_UL320_SR320,320_.jpg"
         }

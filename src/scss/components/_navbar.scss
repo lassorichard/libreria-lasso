@@ -14,22 +14,23 @@
         font-family: $f2;  
         padding-bottom: 20px;  
         width: 100%;    
+        color: $cb;
+        text-decoration: none;
         span {
             font-weight: 800;
+            color: $cp1;
         }
     }
     &__nav {
         display: flex;
         width: 100%;
         justify-content: space-between;
+        align-items: center;
         @media (min-width: $md) {
             justify-content: flex-start;
         }
 
         &__item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 100%;
             padding: 10px;
             border-radius: $br;
@@ -45,6 +46,13 @@
             &:not(:last-child) {
                 margin-right: 20px;
             }
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             img {
                 max-width: 20px;
                 margin-right: 8px;

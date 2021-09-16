@@ -1,3 +1,9 @@
 .item-detail-container {
     padding: 40px;
+
+    &__container {
+        background: $cw;
+        border-radius: $br;
+        padding: 100px 20px;
+    }
 }

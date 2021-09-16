@@ -1,15 +1,16 @@
 import { ItemDetail } from "./ItemDetail"
 import { Loader } from './Loader'
 import { useState, useEffect } from "react";
-import { ItemCount } from "./ItemCount";
+import { useParams } from "react-router-dom";
 
 
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState([])
     const [loader, setLoader] = useState(false)
+    const { itemId } = useParams();
 
     useEffect(() => {
-        const url = "http://localhost:3001/products/2"
+        const url = `http://localhost:3001/products/${itemId}`
         setLoader(true)
         setTimeout(() => {
             fetch(url)
@@ -25,17 +26,19 @@ export const ItemDetailContainer = () => {
                 .finally(() => setLoader(false))
         }, 2000);
 
-    }, [])
+    }, [itemId])
 
     return (
         <>
             {
                 loader === true ? <Loader /> :
                     <div className="item-detail-container">
-                        <ItemDetail
-                            key={item.id}
-                            item={item}
-                        />
+                        <div className="item-detail-container__container container">
+                            <ItemDetail
+                                key={item.id}
+                                item={item}
+                            />
+                        </div>
                     </div>
             }
 
