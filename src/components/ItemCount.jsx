@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Bag from '../assets/img/bag.svg'
 
 export const ItemCount = ({stock}) => {
     
@@ -37,6 +38,7 @@ export const ItemCount = ({stock}) => {
 
             </div>
             <button className="btn btn--primary">
+                <img src={Bag} alt="Bag icon" />
                 Agregar al carrito
             </button>
         </>

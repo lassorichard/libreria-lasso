@@ -5,5 +5,9 @@
         background: $cw;
         border-radius: $br;
         padding: 100px 20px;
+
+        @media (min-width: $md) {
+            padding-inline: 10%;
+        }
     }
 }

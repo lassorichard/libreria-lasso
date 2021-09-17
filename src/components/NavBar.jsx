@@ -1,4 +1,5 @@
 import Book from '../assets/img/book.svg'
+import Home from '../assets/img/home.svg'
 import Headphone from '../assets/img/headphones.svg'
 import { CartWidget } from './CartWidget'
 import { Link, NavLink } from 'react-router-dom'
@@ -20,6 +21,7 @@ export const NavBar = () => {
                             exact activeClassName="active"
                         >
                             <li>
+                                <img src={Home} alt="Home icon" />
                                 Home
                             </li>
                         </NavLink>

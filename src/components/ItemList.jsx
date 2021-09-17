@@ -22,8 +22,7 @@ export const ItemList = ({ items, loader }) => {
                                 >
                                     <Item
                                         title={item.title}
-                                        description={item.description}
-                                        price={item.price}
+                                        author={item.author}
                                         pictureUrl={item.pictureUrl}
                                     />
                                 </Link>

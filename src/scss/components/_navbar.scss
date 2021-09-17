@@ -4,6 +4,7 @@
         flex-direction: column;
         align-items: center;
         text-align: left;
+        padding-block: 40px;
         @media (min-width: $md) {
             flex-direction: row;
             justify-content: space-between;
@@ -28,13 +29,14 @@
         align-items: center;
         @media (min-width: $md) {
             justify-content: flex-start;
+            padding-right: 20px;
         }
 
         &__item {
             width: 100%;
             padding: 10px;
             border-radius: $br;
-            font-weight: bold;
+            font-weight: 400;
             max-width: 150px;
             transition: $transition;
             cursor: pointer;

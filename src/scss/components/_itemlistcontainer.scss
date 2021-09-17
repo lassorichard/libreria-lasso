@@ -1,16 +1,22 @@
 .itemlistcontainer {    
     margin: 40px 0;
-    @media (min-width: $md) {
+    @media (min-width: $lg) {
         display: flex;
     }
     &__aside {
         width: 30%;
+        padding-bottom: 40px;
         &__title {
-            font-size: 40px;
+            font-size: 60px;
+            max-width: 200px;
             font-family: $f2;
+            font-weight: 200;
         }
     }
     &__content {
-        width: 70%;
+        width: 100%;
+        @media (min-width: $lg) {
+            width: 70%;
+        }
     }
 }

@@ -2,8 +2,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 0 40px;
-    align-items: center;
-    justify-items: center;
     
     @media (min-width: $md) {
         grid-template-columns: 1fr 1fr;
@@ -12,6 +10,11 @@
     &__img {
         border-radius: $br;
         margin-bottom: 40px;
+        max-width: 200px;
+        width: 100%;
+        @media (min-width: $md) {
+            max-width: 400px;
+        }
     }
 
     &__column {
@@ -19,11 +22,23 @@
             font-size: 40px;
             font-weight: bold;
             text-transform: uppercase;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        &__author {
+            padding-bottom: 40px;
+            font-weight: lighter;
         }
 
         &__description {
             padding-bottom: 20px;
+            line-height: 26px;
+        }
+        &__price {
+            padding-bottom: 30px;
+            font-weight: bold;
+            font-size: 20px;
+            color: $cp1;
         }
     }
 }

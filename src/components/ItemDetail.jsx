@@ -13,8 +13,14 @@ export const ItemDetail = ({item, loader}) => {
                     <h2 className="item-detail__column__title">
                         {item.title}
                     </h2>
+                    <h3 className="item-detail__column__author">
+                        {item.author}
+                    </h3>
                     <p className="item-detail__column__description">
                         {item.description}
+                    </p>
+                    <p className="item-detail__column__price">
+                        Precio: ${item.price}
                     </p>
                     <ItemCount 
                         stock={10}
