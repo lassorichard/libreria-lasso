@@ -1,43 +1,42 @@
-import { useState } from 'react'
 import Bag from '../assets/img/bag.svg'
 
-export const ItemCount = ({stock}) => {
-    
-    const initial = 1
-    const [items, setItems] = useState(initial)
+export const ItemCount = ({ stock, counter, setCounter, onAdd }) => {
+
 
     function clickMore() {
-        if ( items >= 1 && items < stock ) {
-            setItems(items + 1)
+        if (counter >= 1 && counter < stock) {
+            setCounter(counter + 1)
         }
     }
 
     function clickLess() {
-        if ( items > 1 ) {
-            setItems(items - 1)
-        } 
-        
-        
+        if (counter > 1) {
+            setCounter(counter - 1)
+        }
+
+
     }
 
     return (
-        <>  
+        <>
             <div className="counter">
 
-                <div 
+                <div
                     className="counter__more"
                     onClick={clickMore}
                 >+</div>
 
-                <div className="counter__number">{items}</div>
+                <div className="counter__number">{counter}</div>
 
-                <div 
+                <div
                     className="counter__less"
                     onClick={clickLess}
                 >-</div>
-
             </div>
-            <button className="btn btn--primary">
+            <button
+                className="btn btn--primary"
+                onClick={(e) => onAdd(e)}
+            >
                 <img src={Bag} alt="Bag icon" />
                 Agregar al carrito
             </button>

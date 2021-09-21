@@ -35,10 +35,17 @@
             line-height: 26px;
         }
         &__price {
-            padding-bottom: 30px;
+            padding-bottom: 20px;
             font-weight: bold;
             font-size: 20px;
             color: $cp1;
         }
+        &__stock {
+            font-size: 12px;
+            padding-bottom: 30px;
+        }
+    }
+    &__back {
+        margin-top: 30px;
     }
 }
