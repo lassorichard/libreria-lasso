@@ -3,18 +3,21 @@ import { ItemCount } from './ItemCount'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Bag from '../assets/img/bag.svg'
+import { UseCart } from '../context/CartContext';
 
 export const ItemDetail = ({ item, loader }) => {
 
     const initial = 1
     const [counter, setCounter] = useState(initial)
-    const [itemAdded, setItemAdded] = useState(0)
     const [hideCounter, setHideCounter] = useState(true)
 
+    const { addItem } = UseCart()
+
     const onAdd = (e) => {
-        setItemAdded(counter)
+        addItem(item, counter)
         setHideCounter(false)
     }
+
 
     return (
         <>
@@ -49,7 +52,7 @@ export const ItemDetail = ({ item, loader }) => {
                             />
                             :
                             <Link to="/cart">
-                                <p>Seleccionaste {itemAdded} unidades</p>
+                                <p>Seleccionaste {counter} unidades</p>
                                 <button className="btn btn--primary item-detail__back">
                                     <img src={Bag} alt="Bag icon" />
                                     Finalizar Compra

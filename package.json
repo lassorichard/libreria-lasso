@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server": "json-server --watch src/assets/files/products.json --port 3001"
+    "json-server": "json-server --watch src/assets/files/products.json --port 3002"
   },
   "eslintConfig": {
     "extends": [

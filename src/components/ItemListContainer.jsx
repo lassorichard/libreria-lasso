@@ -9,7 +9,7 @@ export const ItemListContainer = ({ saludo }) => {
     const { categoryId } = useParams()
 
     useEffect(() => {
-        const url = `http://localhost:3001/products`
+        const url = `http://localhost:3002/products`
         setLoader(true)
         setTimeout(() => {
             fetch(url)

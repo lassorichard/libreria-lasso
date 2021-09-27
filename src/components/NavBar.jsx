@@ -47,8 +47,12 @@ export const NavBar = () => {
                                 AudioBooks
                             </li>
                         </NavLink>
+                        <Link
+                            to={'/cart'}
+                        >
+                            <CartWidget />
+                        </Link>
                     </ul>
-                    <CartWidget />
                 </div>
             </nav>
         </>

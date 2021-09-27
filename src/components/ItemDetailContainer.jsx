@@ -10,7 +10,7 @@ export const ItemDetailContainer = () => {
     const { itemId } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:3001/products/${itemId}`
+        const url = `http://localhost:3002/products/${itemId}`
         setLoader(true)
         setTimeout(() => {
             fetch(url)

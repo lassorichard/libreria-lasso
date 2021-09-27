@@ -1,0 +1,32 @@
+.cart-widget {
+    position: relative;
+    width: 20px;
+    &__icon {
+        width: 100%;
+        max-width: 36px;
+        padding-top: 20px;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @media (min-width:$md) {
+            padding-top: 0;
+        }
+    }
+    &__number {
+        position: absolute;
+        background: $cp1;
+        border-radius: 50%;
+        top: -5px;
+        left: -5px;
+        font-size: 10px;
+        min-width: 12px;
+        min-height: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

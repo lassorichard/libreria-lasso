@@ -62,21 +62,6 @@
         }
 
     }
-
-    &__bag {
-        max-width: 22px;
-        padding-top: 20px;
-        cursor: pointer;
-        transition: $transition;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-
-        @media (min-width:$md) {
-            padding-top: 0;
-        }
-    }
 }
 
 .active {
