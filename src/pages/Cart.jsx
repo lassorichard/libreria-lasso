@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { UseCart } from "../context/CartContext";
 
 export const Cart = () => {
-    const { cart, removeItem } = UseCart();
+    const { cart, removeItem, clear } = UseCart();
 
     const total = () => {
         let sumary = 0;
-        cart.forEach((item) => {   
+        cart.forEach((item) => {
             const quantity = item.quantity
             const price = item.item.price
             let quantityPrice = quantity * price
@@ -14,7 +14,7 @@ export const Cart = () => {
         })
         return sumary.toFixed(2)
     }
-    
+
 
     return (
         <>
@@ -22,7 +22,7 @@ export const Cart = () => {
                 <div className="container cart__container">
                     <ul className="cart__list">
                         {
-                            cart.length === 0 ? 
+                            cart.length === 0 ?
                                 <>
                                     <p>No tienes productos en el carrito</p>
                                     <Link to="/">
@@ -31,7 +31,7 @@ export const Cart = () => {
                                         </button>
                                     </Link>
                                 </>
-                            : null
+                                : null
                         }
                         {
                             cart.map(({ item, quantity }) => {
@@ -55,9 +55,9 @@ export const Cart = () => {
                                                 <span>Total:</span>
                                                 <p>${quantity * item.price}</p>
                                             </div>
-                                            <button 
+                                            <button
                                                 className="btn btn--primary cart__list__card__btn"
-                                                onClick={(e)=> removeItem(item)}
+                                                onClick={(e) => removeItem(item)}
                                             >
                                                 Eliminar producto
                                             </button>
@@ -70,6 +70,12 @@ export const Cart = () => {
                     <div className="cart__total">
                         <span>Total a pagar:</span>
                         <p>${total()}</p>
+                        <button 
+                            className="btn btn--secondary"
+                            onClick={clear}
+                        >
+                            Limpiar carrito
+                        </button>
                     </div>
                 </div>
             </section>
