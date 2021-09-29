@@ -8,19 +8,30 @@ export const CartProvider = ({ children }) => {
 
     const addItem = (item, quantity) => {
         const newItem = { item, quantity }
-        setCart((prevState) => [...prevState, newItem])
+        if (!isInCart(item.id)) {
+            setCart((prevState) => [...prevState, newItem])
+        } else {
+            alert('Ya se encuentra en el carrito')
+        }
     };
 
-    const removeItem = (id) => {
-        // Eliminar product con id elegido
+    const removeItem = (item) => {
+        const dataFiltered = cart.filter((product) => product.item.id !== item.id)
+        setCart(dataFiltered)
     };
 
     const clear = () => {
         setCart([]);
     };
 
-    const isInCart = (id) => {
-        // Mirar si existe un producto con el id elegido
+    const isInCart = (idProp) => {
+        return cart.find((item) => {
+            if (item.item.id !== idProp) {
+                return false
+            } else {
+                return true
+            }
+        })
     };
 
     const getQuantity = () => {

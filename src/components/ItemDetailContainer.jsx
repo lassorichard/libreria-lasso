@@ -24,7 +24,7 @@ export const ItemDetailContainer = () => {
                 .then((data) => setItem(data))
                 .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
                 .finally(() => setLoader(false))
-        }, 2000);
+        }, 500);
 
     }, [itemId])
 
