@@ -2,6 +2,7 @@ import { ItemDetail } from "./ItemDetail"
 import { Loader } from './Loader'
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getFirestore } from "../firebase/ItemCollection";
 
 
 export const ItemDetailContainer = () => {
@@ -10,21 +11,36 @@ export const ItemDetailContainer = () => {
     const { itemId } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:3002/products/${itemId}`
+        const db = getFirestore();
+        const productsCollection = db.collection("products");
+        const product = productsCollection.doc(itemId);
         setLoader(true)
-        setTimeout(() => {
-            fetch(url)
-                .then((response) => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw response;
-                    }
-                })
-                .then((data) => setItem(data))
-                .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
-                .finally(() => setLoader(false))
-        }, 500);
+        product
+            .get()
+            .then((doc) => {
+                if (!doc) {
+                    console.log('no tiene producto')
+                } else {
+                    setItem({ id: doc.id, ...doc.data() })
+                }
+            })
+            .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
+            .finally(() => setLoader(false))
+            
+        // const url = `http://localhost:3002/products/${itemId}`
+        // setTimeout(() => {
+        //     fetch(url)
+        //         .then((response) => {
+        //             if (response.ok) {
+        //                 return response.json();
+        //             } else {
+        //                 throw response;
+        //             }
+        //         })
+        //         .then((data) => setItem(data))
+        //         .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
+        //         .finally(() => setLoader(false))
+        // }, 500);
 
     }, [itemId])
 

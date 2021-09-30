@@ -1,6 +1,7 @@
 import { ItemList } from "./ItemList"
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getFirestore } from "../firebase/ItemCollection";
 
 export const ItemListContainer = ({ saludo }) => {
 
@@ -9,24 +10,20 @@ export const ItemListContainer = ({ saludo }) => {
     const { categoryId } = useParams()
 
     useEffect(() => {
-        const url = `http://localhost:3002/products`
+        const db = getFirestore();
+        const productsCollection = db.collection("products");
         setLoader(true)
-        setTimeout(() => {
-            fetch(url)
-                .then((response) => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw response;
-                    }
-                })
-                .then((data) => {
-                    setItems(data)
-                })
-                .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
-                .finally(() => setLoader(false))
-        }, 500);
-
+        productsCollection
+            .get()
+            .then((querySnapshot) => {
+                if (querySnapshot.empty) {
+                    console.log('No hay productos')
+                } else {
+                    setItems(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+                }
+            })
+            .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
+            .finally(() => setLoader(false))
     }, [])
 
     const categoryFilter = items.filter((item) => categoryId === undefined ? item : categoryId === item.category )
