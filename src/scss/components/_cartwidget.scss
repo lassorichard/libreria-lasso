@@ -20,13 +20,18 @@
         position: absolute;
         background: $cp1;
         border-radius: 50%;
-        top: -5px;
-        left: -5px;
+        top: 10px;
+        left: 0px;
         font-size: 10px;
         min-width: 12px;
         min-height: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (min-width: $md) {
+            top: -5px;
+            left: -5px;
+        } 
     }
 }
