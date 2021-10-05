@@ -24,7 +24,7 @@ export const ItemListContainer = ({ saludo }) => {
             })
             .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
             .finally(() => setLoader(false))
-    }, [])
+    }, [categoryId])
 
     const categoryFilter = items.filter((item) => categoryId === undefined ? item : categoryId === item.category )
 
