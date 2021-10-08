@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
             .get()
             .then((doc) => {
                 if (!doc) {
-                    console.log('no tiene producto')
+                    console.log('No hay productos')
                 } else {
                     setItem({ id: doc.id, ...doc.data() })
                 }
@@ -27,21 +27,6 @@ export const ItemDetailContainer = () => {
             .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
             .finally(() => setLoader(false))
             
-        // const url = `http://localhost:3002/products/${itemId}`
-        // setTimeout(() => {
-        //     fetch(url)
-        //         .then((response) => {
-        //             if (response.ok) {
-        //                 return response.json();
-        //             } else {
-        //                 throw response;
-        //             }
-        //         })
-        //         .then((data) => setItem(data))
-        //         .catch((error) => console.log(`Se rompío todo, fue un error ${error.status}`))
-        //         .finally(() => setLoader(false))
-        // }, 500);
-
     }, [itemId])
 
     return (
@@ -57,7 +42,6 @@ export const ItemDetailContainer = () => {
                         </div>
                     </div>
             }
-
         </>
     )
 }

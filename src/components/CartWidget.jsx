@@ -5,7 +5,6 @@ export const CartWidget = () => {
 
   const { getQuantity, cart } = UseCart();
 
-
   return (
     <>
       {

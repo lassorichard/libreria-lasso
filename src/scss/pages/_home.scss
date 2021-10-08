@@ -1,9 +1,9 @@
 .home {
     background: $cp3;
-    margin: 20px;
-    padding: 20px;
     border-radius: $br;
+    margin: 20px;
     max-width: $xl;
+    padding: 20px;
 
     @media (min-width: $xl) {
         margin: 20px auto;

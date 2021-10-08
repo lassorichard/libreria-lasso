@@ -41,7 +41,7 @@ export const ItemListContainer = ({ saludo }) => {
                     {
                         
                     }
-                    <ItemList 
+                    <ItemList
                         items={categoryFilter}
                         loader={loader}
                     />

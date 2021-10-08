@@ -2,7 +2,6 @@ import Bag from '../assets/img/bag.svg'
 
 export const ItemCount = ({ stock, counter, setCounter, onAdd }) => {
 
-
     function clickMore() {
         if (counter >= 1 && counter < stock) {
             setCounter(counter + 1)
@@ -13,8 +12,6 @@ export const ItemCount = ({ stock, counter, setCounter, onAdd }) => {
         if (counter > 1) {
             setCounter(counter - 1)
         }
-
-
     }
 
     return (
@@ -22,16 +19,16 @@ export const ItemCount = ({ stock, counter, setCounter, onAdd }) => {
             <div className="counter">
 
                 <div
-                    className="counter__more"
-                    onClick={clickMore}
-                >+</div>
+                    className="counter__less"
+                    onClick={clickLess}
+                >-</div>
 
                 <div className="counter__number">{counter}</div>
 
                 <div
-                    className="counter__less"
-                    onClick={clickLess}
-                >-</div>
+                    className="counter__more"
+                    onClick={clickMore}
+                >+</div>
             </div>
             <button
                 className="btn btn--primary"

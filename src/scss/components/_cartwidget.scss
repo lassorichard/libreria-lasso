@@ -2,11 +2,11 @@
     position: relative;
     width: 20px;
     &__icon {
-        width: 100%;
+        cursor: pointer;
         max-width: 36px;
         padding-top: 20px;
-        cursor: pointer;
         transition: $transition;
+        width: 100%;
 
         &:hover {
             transform: scale(1.1);
@@ -17,21 +17,21 @@
         }
     }
     &__number {
-        position: absolute;
+        align-items: center;
         background: $cp1;
         border-radius: 50%;
-        top: 10px;
-        left: 0px;
-        font-size: 10px;
-        min-width: 12px;
-        min-height: 12px;
         display: flex;
-        align-items: center;
+        font-size: 10px;
         justify-content: center;
+        left: 0px;
+        min-height: 12px;
+        min-width: 12px;
+        position: absolute;
+        top: 10px;
 
         @media (min-width: $md) {
-            top: -5px;
             left: -5px;
+            top: -5px;
         } 
     }
 }

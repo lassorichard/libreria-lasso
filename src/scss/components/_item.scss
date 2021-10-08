@@ -1,8 +1,8 @@
 .item {
     background: white;
-    padding: 20px 10px;
     border-radius: $br;
     cursor: pointer;
+    padding: 20px 10px;
     transition: $transition;
 
     &:hover {
@@ -10,20 +10,19 @@
     }
 
     &__title {
-        text-transform: uppercase;
-        padding-top: 20px;
         font-weight: bold;
+        padding-top: 20px;
+        text-transform: uppercase;
     }
     &__author {
-        padding-top: 10px;
-        // font-size: 12px;
         font-weight: lighter;
+        padding-top: 10px;
     }
     &__img {
-        width: 100%;
-        height: 300px;
-        width: 200px;
-        object-fit: contain;
         border-radius: $br;
+        height: 300px;
+        object-fit: contain;
+        width: 100%;
+        width: 200px;
     }
 }

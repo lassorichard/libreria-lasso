@@ -1,0 +1,43 @@
+.checkout-modal {
+    position: absolute;
+    background: rgba($cb, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &__container {
+        background: $cp2;
+        padding: 60px 20px;
+        width: 100%;
+        margin: 0 30px;
+        max-width: 500px;
+        border-radius: $br;
+    }
+
+    &__title {
+        text-align: center;
+        font-weight: bold;
+        padding-bottom: 30px;
+    }
+
+    &__form {
+        margin-bottom: 15px;
+
+        input {
+            border: none;
+            padding: 8px 10px;
+            width: 100%;
+            max-width: 600px;
+            border-radius: $br;
+            color: $cb;
+        }
+    } 
+
+    .btn {
+        margin: 40px auto 0 auto;
+    }
+}

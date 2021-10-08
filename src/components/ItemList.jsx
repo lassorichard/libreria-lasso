@@ -3,9 +3,6 @@ import { Loader } from './Loader'
 import { Link } from 'react-router-dom';
 
 export const ItemList = ({ items, loader }) => {
-
-
-
     return (
         <>
             {
@@ -13,12 +10,11 @@ export const ItemList = ({ items, loader }) => {
             }
             <section className="item-list">
                 {
-                    items.map((item) => {
+                    items?.map((item) => {
                         return (
-                            <>
+                            <div key={item.id}>
                                 <Link
                                     to={`/product/${item.id}`}
-                                    key={item.id}
                                 >
                                     <Item
                                         title={item.title}
@@ -26,7 +22,7 @@ export const ItemList = ({ items, loader }) => {
                                         pictureUrl={item.pictureUrl}
                                     />
                                 </Link>
-                            </>
+                            </div>
                         )
                     })
                 }

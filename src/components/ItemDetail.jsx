@@ -17,8 +17,7 @@ export const ItemDetail = ({ item, loader }) => {
         addItem(item, counter)
         setHideCounter(false)
     }
-
-
+    
     return (
         <>
             {

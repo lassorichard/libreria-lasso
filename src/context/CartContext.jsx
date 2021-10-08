@@ -6,6 +6,8 @@ CartContext.displayName = "CartContext";
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [totalCart, setTotalCart] = useState(0);
+    const [buyer, setBuyer] = useState({ name: "prueba", phone: "", email: "" })
+    const [modal, setModal] = useState(false);
 
     const addItem = (item, quantity) => {
         const newItem = { item, quantity }
@@ -22,8 +24,10 @@ export const CartProvider = ({ children }) => {
     };
 
     const clear = () => {
+        setModal(false)
         setCart([]);
         setTotalCart(0)
+        setBuyer({ name: "prueba", phone: "", email: "" })
     };
 
     const isInCart = (idProp) => {
@@ -44,7 +48,7 @@ export const CartProvider = ({ children }) => {
         return quantity
     }
 
-    const value = { cart, addItem, removeItem, clear, isInCart, getQuantity, totalCart, setTotalCart }
+    const value = { cart, addItem, removeItem, clear, isInCart, getQuantity, totalCart, setTotalCart, buyer, setBuyer, modal, setModal }
 
     return (
         <CartContext.Provider value={value}>

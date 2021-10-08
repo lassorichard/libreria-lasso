@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CheckoutModal } from "../components/CheckoutModal";
 import { UseCart } from "../context/CartContext";
 import { getFirestore } from "../firebase/ItemCollection";
 import firebase from 'firebase/app'
 import 'firebase/firestore';
 
 export const Cart = () => {
-    const { cart, removeItem, clear, totalCart, setTotalCart } = UseCart();
+    const { cart, removeItem, clear, totalCart, setTotalCart, buyer, modal, setModal } = UseCart();
     const [message, setMessage] = useState(false);
     const [idNewOrder, setIdNewOrder] = useState();
 
@@ -25,16 +26,15 @@ export const Cart = () => {
         total()
     }, [cart, setTotalCart])
 
-
     const newOrder = {
-        buyer: { name: "Richard", phone: 312312314, email: "richard@correo.com" },
+        buyer: buyer,
         items: cart,
         total: totalCart,
         date: firebase.firestore.FieldValue.serverTimestamp(),
     };
 
-
-    const handleCheckout = () => {
+    const handleCheckout = (e) => {
+        e.preventDefault();
         const db = getFirestore();
         const ordersCollection = db.collection("orders");
 
@@ -53,12 +53,11 @@ export const Cart = () => {
         clear()
     }
 
-
     return (
         <>
             <section className="cart">
                 <div className="container cart__container">
-                    <ul className="cart__list">
+                    <ul className={message !== true ? 'cart__list' : 'cart__list__message'}>
                         {
                             message === true ?
                                 <>
@@ -71,19 +70,25 @@ export const Cart = () => {
                                     </Link>
                                 </>
                                 :
-                                <>
-                                    <p className="cart__list__message--strong">No tienes productos en el carrito</p>
-                                    <Link to="/">
+                                null
+                        }
+                        {
+                            cart.length === 0 && message !== true ?
+                                    <>
+                                        <p className="cart__list__message">No tienes productos en el carrito</p>
+                                        <Link to="/">
                                         <button className="btn btn--primary cart__list__message--btn">
                                             Vuelve a inicio
                                         </button>
-                                    </Link>
-                                </>
+                                        </Link>
+                                    </>
+                                : null
+
                         }
                         {
                             cart.map(({ item, quantity }) => {
                                 return (
-                                    <>
+                                    <div key={item.id}>
                                         <li className="cart__list__card">
                                             <img className="cart__list__card__img" src={item.pictureUrl} alt={item.title} />
                                             <div className="cart__list__card__text">
@@ -109,27 +114,38 @@ export const Cart = () => {
                                                 Eliminar producto
                                             </button>
                                         </li>
-                                    </>
+                                    </div>
                                 )
                             })
                         }
                     </ul>
-                    <div className="cart__total">
-                        <span>Total a pagar:</span>
-                        <p>${totalCart}</p>
-                        <button
-                            className="btn btn--secondary"
-                            onClick={handleCheckout}
-                        >
-                            Finalizar compra
-                        </button>
-                        <button
-                            className="btn btn--primary"
-                            onClick={clear}
-                        >
-                            Limpiar carrito
-                        </button>
-                    </div>
+                    {
+                        cart.length !== 0 && message !== true ? 
+                        <div className="cart__total">
+                            <span>Total a pagar:</span>
+                            <p>${totalCart}</p>
+                            <button
+                                className="btn btn--primary"
+                                onClick={clear}
+                            >
+                                Limpiar carrito
+                            </button>
+                            <button
+                                className="btn btn--secondary"
+                                onClick={()=> setModal(true)}
+                            >
+                                Finalizar compra
+                            </button>
+                        </div> : null
+                    }
+                    {
+                        modal === true ?
+                        <CheckoutModal 
+                            buyer={newOrder.buyer}
+                            handleCheckout = {handleCheckout}
+                        />
+                        : null
+                    }
                 </div>
             </section>
         </>

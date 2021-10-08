@@ -1,45 +1,45 @@
 .header {
     &__container {
+        align-items: center;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: left;
         padding-block: 40px;
+        text-align: left;
         @media (min-width: $md) {
             flex-direction: row;
             justify-content: space-between;
         }
     }
     &__logo {
-        font-size: 40px;
-        font-family: $f2;  
-        padding-bottom: 20px;  
-        width: 100%;    
         color: $cb;
+        font-family: $f2;  
+        font-size: 40px;
+        padding-bottom: 20px;  
         text-decoration: none;
+        width: 100%;    
         span {
-            font-weight: 800;
             color: $cp1;
+            font-weight: 800;
         }
     }
     &__nav {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
         align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
         @media (min-width: $md) {
             justify-content: flex-start;
             padding-right: 20px;
         }
 
         &__item {
-            width: 100%;
-            padding: 10px;
             border-radius: $br;
+            cursor: pointer;
             font-weight: 400;
             max-width: 150px;
+            padding: 10px;
             transition: $transition;
-            cursor: pointer;
+            width: 100%;
 
             &:hover {
                 background: rgba($cp1, 0.9);
@@ -50,14 +50,14 @@
             }
 
             li {
-                display: flex;
                 align-items: center;
+                display: flex;
                 justify-content: center;
             }
 
             img {
-                max-width: 20px;
                 margin-right: 8px;
+                max-width: 20px;
             }
         }
 

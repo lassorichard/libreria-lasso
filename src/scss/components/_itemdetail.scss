@@ -1,7 +1,7 @@
 .item-detail {
     display: grid;
-    grid-template-columns: 1fr;
     gap: 0 40px;
+    grid-template-columns: 1fr;
     
     @media (min-width: $md) {
         grid-template-columns: 1fr 1fr;
@@ -21,24 +21,24 @@
         &__title {
             font-size: 40px;
             font-weight: bold;
-            text-transform: uppercase;
             padding-bottom: 10px;
+            text-transform: uppercase;
         }
 
         &__author {
-            padding-bottom: 40px;
             font-weight: lighter;
+            padding-bottom: 40px;
         }
 
         &__description {
-            padding-bottom: 20px;
             line-height: 26px;
+            padding-bottom: 20px;
         }
         &__price {
-            padding-bottom: 20px;
-            font-weight: bold;
-            font-size: 20px;
             color: $cp1;
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 20px;
         }
         &__stock {
             font-size: 12px;

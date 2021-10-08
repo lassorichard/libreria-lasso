@@ -4,13 +4,13 @@
         display: flex;
     }
     &__aside {
-        width: 30%;
         padding-bottom: 40px;
+        width: 30%;
         &__title {
-            font-size: 60px;
-            max-width: 200px;
             font-family: $f2;
+            font-size: 60px;
             font-weight: 200;
+            max-width: 200px;
         }
     }
     &__content {

@@ -6,6 +6,22 @@ This project is a training web development for the course ReactJS from Coderhous
 
 My name is Richard Lasso and I'm a colombian Front End Developer.
 
+## Tech Stack
+
+- CSS Preprocessor: [SCSS](https://www.npmjs.com/package/sass)
+
+    File Building:
+    Master file: `main.scss`
+    Folder distribution: 
+        - animations
+        - components
+        - general
+        - pages
+        - variables
+
+- Firebase [docs](https://firebase.google.com/docs)
+- react-router-dom [docs](https://reactrouter.com/web/guides/quick-start)
+
 ## Available Scripts
 
 In the project directory, you can run:
