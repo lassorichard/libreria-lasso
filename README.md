@@ -6,6 +6,15 @@ This project is a training web development for the course ReactJS from Coderhous
 
 My name is Richard Lasso and I'm a colombian Front End Developer.
 
+
+## Deploy Repository
+
+- git clone https://github.com/lassorichard/libreria-lasso.git
+- cd libreria-lasso
+- yarn install // npm i
+- yarn start // npm start
+
+
 ## Tech Stack
 
 - CSS Preprocessor: [SCSS](https://www.npmjs.com/package/sass)
